@@ -1,0 +1,45 @@
+{
+    "Rules": [
+        {
+            "Expiration": {
+                "Days": 365
+            },
+            "ID": "Test-Rule",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Status": "Enabled",
+            "Transitions": [
+                {
+                    "Days": 90,
+                    "StorageClass": "GLACIER"
+                }
+            ],
+            "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 7
+            }
+        },
+        {
+            "Expiration": {
+                "ExpiredObjectDeleteMarker": true
+            },
+            "ID": "Test-Rule2",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Status": "Enabled",
+            "NoncurrentVersionTransitions": [
+                {
+                    "NoncurrentDays": 30,
+                    "StorageClass": "GLACIER"
+                }
+            ],
+            "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 365
+            },
+            "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 7
+            }
+        }
+    ]
+}
